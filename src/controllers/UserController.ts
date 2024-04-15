@@ -13,8 +13,18 @@ export class UserController {
     createUser = (request: Request, response: Response): Response => {
         const user = request.body
 
+        let message = ""
+        let erro: boolean = false
         if(!user.name){
-            return response.status(400).json({ message: 'Bad request! Name obrigatório'})
+            message += " Name obrigatório."            
+            erro = true
+        }
+        if(!user.email){
+            message += " E-mail obrigatório."
+            erro = true
+        }
+        if (erro) {
+            return response.status(400).json({ message: `Bad request!${message}`})
         }
 
         this.userService.createUser(user.name, user.email)
@@ -24,5 +34,17 @@ export class UserController {
     getAllUsers = (request: Request, response: Response) => {
         const users = this.userService.getAllUsers()
         return response.status(200).json( users )
-    } 
+    }
+    
+    deleteUser = (request: Request, response: Response) => {
+        const body = request.body
+        
+        let user = this.userService.db.find(item => item.email === body.email)        
+        if (user) {
+            console.log('Deletando usuário...', user)
+            this.userService.deleteUser(user)    
+            return response.status(200).json({ message: 'Usuário deletado'})
+        }        
+        return response.status(400).json({ message: 'Usuário inexistente'})
+    }
 }

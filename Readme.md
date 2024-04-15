@@ -1,6 +1,8 @@
 # Desenvolvendo o Dio Bank
 desenvolvido por [Nathally Souza](https://github.com/nathyts)
 
+respondido por [Alisson Rangel](https://github.com/alissonrangel)
+
 #### Projeto desenvolvido com conceitos básicos de typescript
 
 ### Tecnologias
@@ -19,14 +21,18 @@ desenvolvido por [Nathally Souza](https://github.com/nathyts)
     npm run dev
 
 #### Desafios
-[ ] Incluir os testes unitários pendentes no controller
+[x] Incluir os testes unitários pendentes no controller
   - Verificar a resposta de erro caso o usuário não informe o name
   - Verificar se a função getAllusers está sendo chamada
 
-[ ] Implementa uma validação para o campo email
+[x] Implementa uma validação para o campo email
   - O usuário nâo pode ser criado caso não informe o email
   - Escreva o teste unitário
 
-[ ] Refatorar e implementar a rota para deletar o usuário
+[x] Refatorar e implementar a rota para deletar o usuário
   - Refatore a rota para deletar usuários
   - Escreva os testes unitários necessários
+
+#### Desafios Extras
+  - Implementei o service deleteUser para deletar um usuário do sistema
+  - Implementei um test do service deleteUser

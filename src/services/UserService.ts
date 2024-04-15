@@ -7,6 +7,14 @@ const db = [
     {
         name: "Joana",
         email: "joana@dio.com",
+    },
+    {
+        name: "Alisson",
+        email: "alisson@dio.com",
+    },
+    {
+        name: "Nath",
+        email: "nath@dio.com",
     }
 ]
 
@@ -31,6 +39,13 @@ export class UserService {
 
     getAllUsers = () => {
         return this.db
+    }
+
+    deleteUser = (user: User) => {        
+        let index = this.db.indexOf(user)
+        this.db.splice(index, 1)
+        
+        console.log('DB atualizado2', this.db);
     }
 }
 
